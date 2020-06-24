@@ -1,0 +1,26 @@
+import service from '@/utils/fetch'
+
+export default {
+  prefix: service.product + '/category',
+  listTree( data = {}) {
+    let url = this.prefix + '/list/tree'
+    return service.get(url, data)
+  },
+  deleteMenu( data = []) {
+    let url = this.prefix + '/delete'
+    return service.post(url, data)
+  },
+  saveMenu( data = {}) {
+    let url = this.prefix + '/save'
+    return service.post(url, data)
+  },
+  updateMenu( data = {}) {
+    let url = this.prefix + '/update'
+    return service.post(url, data)
+  },
+  getMenu( data) {
+    let url = `${this.prefix}/info/${data};`
+    return service.get(url, null)
+  }
+
+}
